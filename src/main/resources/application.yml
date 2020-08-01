@@ -1,0 +1,12 @@
+resilience4j.retry:
+  configs:
+    default:
+      maxRetryAttempts: 5
+      waitDuration: 3s
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      retryExceptions:
+        - es.josetesan.databus.newdatabus.MyException
+  instances:
+     backendA:
+       baseConfig: default
